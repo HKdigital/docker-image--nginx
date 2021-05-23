@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  secure-webserver:
+    image: hkdigital-nginx-2021a     # local
+    # image: hkdigital/nginx-2021a   # docker-hub
+
+    restart: on-failure # "no"|always|on-failure|unless-stopped
+
+    environment:
+      - INSTALL_DEFAULTS=secure-webserver
+
+    ports:
+      # host-port -> container port
+      - "10080:80"
+      - "10443:443"
+
+    volumes:
+      - ./volumes/config:/mnt/config
+      - ./volumes/log:/mnt/log
+      - ./volumes/certificates:/mnt/certificates
+#       - secure-webserver-webroot:/mnt/webroot
+#       - secure-webserver-media:/mnt/media
+
+# volumes:
+#   secure-webserver-webroot:
+#   secure-webserver-media:

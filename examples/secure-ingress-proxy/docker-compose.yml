@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+
+  # .............................................................. ingress proxy
+
+  secure-ingress-proxy:
+    image: hkdigital-nginx-2021a     # local
+    # image: hkdigital/nginx-2021a   # docker-hub
+
+    restart: on-failure # "no"|always|on-failure|unless-stopped
+
+    depends_on:
+      - webserver
+
+    environment:
+      - INSTALL_DEFAULTS=secure-ingress-proxy
+
+    ports:
+      # Using fixed port numbers
+      - "11080:80"
+      - "11443:443"
+
+    volumes:
+      - ./volumes/config:/mnt/config
+      - ./volumes/log:/mnt/log
+      - ./volumes/certificates:/mnt/certificates
+
+  # .................................................................. webserver
+
+  webserver:
+    image: hkdigital-nginx-2021a
+    restart: always
+
+    # @note not exposing ports - only using internal ports
+
+    volumes:
+      - ./volumes/webroot:/mnt/webroot

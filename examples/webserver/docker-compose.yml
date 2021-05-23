@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  webserver:
+    image: hkdigital-nginx-2021a     # local
+    # image: hkdigital/nginx-2021a   # docker-hub
+
+    restart: on-failure # "no"|always|on-failure|unless-stopped
+
+    environment:
+      - INSTALL_DEFAULTS=webserver
+
+    ports:
+      # Let docker choose port numbers on the host
+      # - "80"
+
+      # host-port -> container port
+      - "10080:80"
+
+#     volumes:
+#       - webserver-webroot:/mnt/webroot
+#       - webserver-config:/mnt/config
+#       - webserver-certificates:/mnt/certificates
+#       - webserver-log:/mnt/log
+#       - webserver-media:/mnt/media
+
+# volumes:
+#   webserver-webroot:
+#   webserver-certificates:
+#   webserver-config:
+#   webserver-log:
+#   webserver-media:
