@@ -5,8 +5,8 @@ services:
   # .............................................................. ingress proxy
 
   secure-ingress-proxy:
-    image: hkdigital-nginx-2021a     # local
-    # image: hkdigital/nginx-2021a   # docker-hub
+    image: hkdigital/nginx-2021a   # docker-hub
+    # image: hkdigital-nginx-2021a   # local
 
     restart: on-failure # "no"|always|on-failure|unless-stopped
 

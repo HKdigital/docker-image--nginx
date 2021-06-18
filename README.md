@@ -11,15 +11,13 @@ Below an example of using the image in a docker-compose file.
 
 In the `/examples` folder, you'll find more `docker-files` for the different setups.
 
-Note that you should change the image (local) `hkdigital-nginx-2021a` to `hkdigital/nginx-2021a` if you use the image from docker hub.
-
 ```yaml
 version: "3"
 
 services:
   website:
-    image: hkdigital-nginx-2021a     # local
-    # image: hkdigital/nginx-2021a   # docker-hub
+    image: hkdigital/nginx-2021a   # docker-hub
+    # image: hkdigital-nginx-2021a   # local
     
     restart: on-failure # "no"|always|on-failure|unless-stopped
 
@@ -72,14 +70,3 @@ Build the docker image
 ```bash
 ./build-latest-image.sh
 ```
-
-## Extra: push to docker hub
-
-This is a generic instruction to push your images to `docker hub`. You must setup a (free) docker hub account and create the repository.
-
-```bash
-docker tag <existing-image> <hub-user>/<repo-name>[:<tag>]
-docker push <hub-user>/<repo-name>:<tag>
-```
-
-See also [Docker hub repositories](https://docs.docker.com/docker-hub/repos/)
