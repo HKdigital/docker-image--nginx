@@ -17,12 +17,16 @@ services:
       # host-port -> container port
       - "10080:80"
 
-#     volumes:
-#       - webserver-webroot:/mnt/webroot
-#       - webserver-config:/mnt/config
-#       - webserver-certificates:/mnt/certificates
-#       - webserver-log:/mnt/log
-#       - webserver-media:/mnt/media
+    # volumes:
+    #   - ./volumes/webroot:/mnt/weboot
+    #   - ./volumes/config:/mnt/config
+
+    # volumes:
+    #   - webserver-webroot:/mnt/webroot
+    #   - webserver-config:/mnt/config
+    #   - webserver-certificates:/mnt/certificates
+    #   - webserver-log:/mnt/log
+    #   - webserver-media:/mnt/media
 
 # volumes:
 #   webserver-webroot:

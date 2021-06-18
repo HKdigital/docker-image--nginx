@@ -40,7 +40,9 @@ If you want to do something more useful, you should specify a COMMAND to execute
 
 E.g. the following command runs a container
 
-    docker run --rm hkdigital-nginx-2021a
+```bash
+docker run --rm hkdigital-nginx-2021a
+```
 
 This command will run the script [/srv/boot.sh] inside the container, which in turn will execute the script [/srv/run.sh].
 
