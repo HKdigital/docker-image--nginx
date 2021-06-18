@@ -82,4 +82,4 @@ docker tag <existing-image> <hub-user>/<repo-name>[:<tag>]
 docker push <hub-user>/<repo-name>:<tag>
 ```
 
-See also [Docker hub repositories] (https://docs.docker.com/docker-hub/repos/)
+See also [Docker hub repositories](https://docs.docker.com/docker-hub/repos/)
