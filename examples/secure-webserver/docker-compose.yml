@@ -12,8 +12,8 @@ services:
 
     ports:
       # host-port -> container port
-      - "10080:80"
-      - "10443:443"
+      - "1080:80"
+      - "1443:443"
 
     volumes:
       - ./volumes/config:/mnt/config

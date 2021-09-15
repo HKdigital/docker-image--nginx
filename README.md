@@ -26,7 +26,7 @@ services:
       # - "80"
 
       # host-port -> container port
-      - "10080:80"
+      - "1080:80"
 
     volumes:
       - website:/mnt
