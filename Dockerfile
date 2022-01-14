@@ -1,12 +1,7 @@
 # ........................................................................ About
-
-# This docker image contains an NGINX webserver and some standard
-# configuration settings
-# - Sets /etc/security/limits.conf
-# - Sets /etc/sysctl.conf
 #
-# Jens Kleinhout
-# hkdigital.nl
+# @see README at https://github.com/HKdigital/docker-images--nginx-2021a
+#
 
 # ......................................................................... FROM
 
@@ -17,7 +12,7 @@ MAINTAINER Jens Kleinhout "hello@hkdigital.nl"
 # .......................................................................... ENV
 
 # Update the timestamp below to force an apt-get update during build
-ENV APT_SOURCES_REFRESHED_AT 2021-12-14_13h24
+ENV APT_SOURCES_REFRESHED_AT 2022-01-14_17h38
 
 # ........................................................................ NGINX
 
@@ -41,7 +36,7 @@ RUN apt-get -qq update && \
 #        questions/30215830/dockerfile-copy-keep-subdirectory-structure
 
 # Update the timestamp below to force copy of image-files during build
-ENV IMAGE_FILES_REFRESHED_AT 2021-12-14_13h24
+ENV IMAGE_FILES_REFRESHED_AT 2022-01-14_17h38
 
 COPY ./image-files/ /
 

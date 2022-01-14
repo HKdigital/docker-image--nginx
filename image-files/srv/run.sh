@@ -20,8 +20,11 @@ fi
 
 echo "- Using INSTALL_DEFAULTS [${INSTALL_DEFAULTS}]"
 
-INSTALL_FILES_CONFIG="/srv/install-files/${INSTALL_DEFAULTS}/config"
-INSTALL_FILES_WEBROOT="/srv/install-files/${INSTALL_DEFAULTS}/webroot"
+INSTALL_FILES_CONFIG="/srv/install-files/configs/${INSTALL_DEFAULTS}"
+
+INSTALL_FILES_CONFIG_DEFAULTS="/srv/install-files/configs-defaults"
+
+INSTALL_FILES_WEBROOT="/srv/install-files/webroots/${INSTALL_DEFAULTS}"
 
 echo
 echo "General settings"
@@ -66,7 +69,7 @@ then
   #
   echo "- Copy missing files from [${INSTALL_FILES_WEBROOT}] to [${WEBROOT_FOLDER}]"
 
-  # Ignore write errors
+  # Copy webroot folder
   rsync --ignore-existing --archive --relative \
     "${INSTALL_FILES_WEBROOT}/./" "${WEBROOT_FOLDER}" > /dev/null 2>&1
 fi
@@ -106,9 +109,14 @@ then
   #
   echo "- Copy missing files from [${INSTALL_FILES_CONFIG}] to [${CONFIG_FOLDER}]"
 
-  # Ignore write errors
+  # Copy config folder
   rsync --ignore-existing --archive --relative \
     "${INSTALL_FILES_CONFIG}/./" "${CONFIG_FOLDER}" > /dev/null 2>&1
+
+
+  # Copy default config/include folder
+  rsync --ignore-existing --archive --relative \
+    "${INSTALL_FILES_CONFIG_DEFAULTS}/./" "${CONFIG_FOLDER}" > /dev/null 2>&1
 fi
 
 echo "- Updating filesystem rights"
@@ -198,6 +206,7 @@ ln -sf --no-target-directory "${MEDIA_FOLDER}" "/@media"
 # .............................................. Create or update symbolic links
 
 ln -sf --no-target-directory "${WEBROOT_FOLDER}" "/@webroot"
+ln -sf --no-target-directory "${MEDIA_FOLDER}" "/@media"
 ln -sf --no-target-directory "${CONFIG_FOLDER}" "/@config"
 ln -sf --no-target-directory "${CERTIFICATES_FOLDER}" "/@certificates"
 ln -sf --no-target-directory "${LOG_FOLDER}" "/@log"
@@ -211,7 +220,7 @@ then
   #
 
   echo
-  echo "- Generate self-signed certificates (if missing)"
+  echo "- Generate self-signed certificates in /@certificates (if missing)"
 
   /srv/create-self-signed-certificate.sh
 fi

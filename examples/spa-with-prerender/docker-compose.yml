@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+
+  # == Webserver
+
+  webserver:
+    image: hkdigital/nginx-2021a   # docker-hub
+    # image: hkdigital-nginx-2021a   # local
+
+    restart: always # "no"|always|on-failure|unless-stopped
+
+    environment:
+      - INSTALL_DEFAULTS=spa-with-prerender
+
+    ports:
+      # Let docker choose port numbers on the host
+      # - "80"
+
+      # host-port -> container port
+      - "1080:80"
+
+    volumes:
+      - ./volumes/webroot:/mnt/webroot
+      - ./volumes/config:/mnt/config
+      - ./volumes/log:/mnt/log
+      - ./volumes/media:/mnt/media
+
+    networks:
+      - default
+      - prerender
+
+  # == Prerender service
+
+  prerender:
+    image: dockette/rendertron
+
+    restart: always
+
+    networks:
+      - prerender
+
+networks:
+  default:
+  prerender:

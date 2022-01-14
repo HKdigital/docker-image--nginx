@@ -1,11 +1,11 @@
-version: "3.8"
+version: "3.9"
 
 services:
   webserver:
-    image: hkdigital/nginx-2021a   # docker-hub
-    # image: hkdigital-nginx-2021a   # local
+    # image: hkdigital/nginx-2021a   # docker-hub
+    image: hkdigital-nginx-2021a   # local
 
-    restart: on-failure # "no"|always|on-failure|unless-stopped
+    restart: always # "no"|always|on-failure|unless-stopped
 
     environment:
       - INSTALL_DEFAULTS=webserver
@@ -17,9 +17,12 @@ services:
       # host-port -> container port
       - "1080:80"
 
-    # volumes:
-    #   - ./volumes/webroot:/mnt/weboot
-    #   - ./volumes/config:/mnt/config
+    volumes:
+      - ./volumes/webroot:/mnt/webroot
+      - ./volumes/config:/mnt/config
+      - ./volumes/certificates:/mnt/certificates
+      - ./volumes/log:/mnt/log
+      - ./volumes/media:/mnt/media
 
     # volumes:
     #   - webserver-webroot:/mnt/webroot
