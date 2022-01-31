@@ -8,7 +8,7 @@ services:
     image: hkdigital/nginx-2021a   # docker-hub
     # image: hkdigital-nginx-2021a   # local
 
-    restart: on-failure # "no"|always|on-failure|unless-stopped
+    restart: always # "no"|always|on-failure|unless-stopped
 
     depends_on:
       - webserver
@@ -29,10 +29,7 @@ services:
   webserver:
     image: hkdigital-nginx-2021a
 
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
+    restart: always # "no"|always|on-failure|unless-stopped
 
     # @note not exposing ports - only using internal ports
 

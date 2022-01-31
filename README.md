@@ -84,3 +84,9 @@ e.g.
 docker tag hkdigital-nginx-2021a hkdigital/nginx-2021a
 docker push hkdigital/nginx-2021a
 ```
+
+# Buy me a coffee
+
+If you like my work, please support me:
+
+https://www.buymeacoffee.com/hkjens

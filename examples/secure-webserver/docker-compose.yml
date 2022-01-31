@@ -5,7 +5,7 @@ services:
     image: hkdigital/nginx-2021a   # docker-hub
     # image: hkdigital-nginx-2021a   # local
 
-    restart: on-failure # "no"|always|on-failure|unless-stopped
+    restart: always # "no"|always|on-failure|unless-stopped
 
     environment:
       - INSTALL_DEFAULTS=secure-webserver
