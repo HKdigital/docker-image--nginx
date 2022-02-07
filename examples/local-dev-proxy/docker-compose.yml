@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+
+  dev-proxy:
+    image: hkdigital-nginx
+
+    restart: always
+
+    environment:
+      - INSTALL_DEFAULTS=local-dev-proxy
+
+    ports:
+      # host-port:internal-port
+      - "9999:80"
+
+    volumes:
+      - ./volumes/config:/mnt/config
+      - ./volumes/log:/mnt/log
