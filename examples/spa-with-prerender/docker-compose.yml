@@ -5,8 +5,8 @@ services:
   # == Webserver
 
   webserver:
-    # image: hkdigital/nginx   # docker-hub
-    image: hkdigital-nginx   # local
+    image: hkdigital/nginx   # docker-hub
+    # image: hkdigital-nginx   # local
 
     restart: always # "no"|always|on-failure|unless-stopped
 
