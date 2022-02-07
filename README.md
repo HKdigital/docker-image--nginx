@@ -7,7 +7,7 @@ The docker image contains default configurations for different setups. The defau
 
 An interesting configuration is `spa-with-prerender` for public websites (this requires an additional docker container for the prerendering).
 
-Another interesting configuration is `local-dev-proxy`. This proxy can be run on a local development machine to distribute (proxy) requests on a single port to frontend and backend server ports.
+Another interesting configuration is `local-dev-proxy`. This proxy can be run on a local development machine to distribute (proxy) requests from a single port to frontend and backend server ports. This works great in combination with a service like [NGROK](https://ngrok.com/).
 
 See the [examples](https://github.com/HKdigital/docker-image--nginx/tree/main/examples) folder for more details about how to use the default configurations.
 
