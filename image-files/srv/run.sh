@@ -10,7 +10,7 @@
 #
 
 echo
-echo "Running [run.sh] from image [hkdigital-nginx-2021a]"
+echo "Running [run.sh] from image [hkdigital-nginx]"
 echo "- $(date)"
 
 if [ -z "${INSTALL_DEFAULTS}" ]; then

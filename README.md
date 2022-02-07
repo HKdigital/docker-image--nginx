@@ -20,8 +20,8 @@ version: "3.9"
 
 services:
   website:
-    image: hkdigital/nginx-2021a   # docker-hub
-    # image: hkdigital-nginx-2021a   # local
+    image: hkdigital/nginx   # docker-hub
+    # image: hkdigital-nginx   # local
     
     restart: always # "no"|always|on-failure|unless-stopped
 
@@ -57,8 +57,8 @@ Clone the latest commit from github into a local working directory
 
 ```bash
 git clone --depth 1 \
-  git@github.com:hkdigital/docker-images--nginx-2021a.git \
-  hkdigital-nginx-2021a
+  git@github.com:hkdigital/docker-images--nginx.git \
+  hkdigital-nginx
 ```
 
 Build the docker image
@@ -66,7 +66,7 @@ Build the docker image
 ```bash
 ./build-latest-image.sh
 docker image ls
-# Shows hkdigital-nginx-2021a
+# Shows hkdigital-nginx
 ```
 
 ## Extra: push to docker hub
@@ -81,8 +81,8 @@ docker push <hub-user>/<repo-name>:<tag>
 e.g.
 
 ```bash
-docker tag hkdigital-nginx-2021a hkdigital/nginx-2021a
-docker push hkdigital/nginx-2021a
+docker tag hkdigital-nginx hkdigital/nginx
+docker push hkdigital/nginx
 ```
 
 # Buy me a coffee
