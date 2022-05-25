@@ -12,7 +12,7 @@ MAINTAINER Jens Kleinhout "hello@hkdigital.nl"
 # .......................................................................... ENV
 
 # Update the timestamp below to force an apt-get update during build
-ENV APT_SOURCES_REFRESHED_AT 2022-04-04_13h13
+ENV APT_SOURCES_REFRESHED_AT 2022-05-25_10h26
 
 # ........................................................................ NGINX
 
@@ -36,7 +36,7 @@ RUN apt-get -qq update && \
 #        questions/30215830/dockerfile-copy-keep-subdirectory-structure
 
 # Update the timestamp below to force copy of image-files during build
-ENV IMAGE_FILES_REFRESHED_AT 2022-04-04_13h13
+ENV IMAGE_FILES_REFRESHED_AT 2022-05-25_10h26
 
 COPY ./image-files/ /
 
