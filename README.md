@@ -57,7 +57,13 @@ docker-compose exec website nginx -s reload
 
 # Build locally
 
-Clone the latest commit from github into a local working directory
+If you just want to use the image to create a container, there is no need to build the image locally. You can use the image from docker-hub.
+
+Building the image locally is usually done for development of the image itself.
+
+## Get a working copy from the repository
+
+Clone the latest commit from github into a local working directory.
 
 ```bash
 git clone --depth 1 \
@@ -65,36 +71,10 @@ git clone --depth 1 \
   hkdigital-nginx
 ```
 
-Build the docker image
+## Build the docker image
 
 ```bash
 ./build-latest-image.sh
 docker image ls
 # Shows hkdigital-nginx
 ```
-
-## Extra: push to docker hub
-
-This is a generic instruction to push your images to `docker hub`. You must setup a (free) docker hub account and create the repository.
-
-```bash
-docker tag <existing-image> <hub-user>/<repo-name>[:<tag>]
-docker push <hub-user>/<repo-name>:<tag>
-```
-
-e.g.
-
-```bash
-docker tag hkdigital-nginx hkdigital/nginx
-docker push hkdigital/nginx
-```
-
-# Support cancer research
-
-If you like our work and would like us to share some more code, please support us! 
-
-Currently we're collecting money for cancer research:
-
-Alpe d'HuZes is a unique sporting event where as much money as possible is raised for cancer research and for improving the quality of life of people with cancer. On a single day, 5000 participants will bike, hike or run the Alpe d'Huez. Attempting a maximum of six climbs, under the motto 'giving up is not an option'. 
-
-https://www.opgevenisgeenoptie.nl/fundraisers/JensKleinhout

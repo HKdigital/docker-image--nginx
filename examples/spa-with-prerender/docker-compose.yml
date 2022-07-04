@@ -33,7 +33,7 @@ services:
   # == Prerender service
 
   prerender:
-    image: dockette/rendertron
+    image: hkdigital/rendertron
 
     restart: always
 
