@@ -4,11 +4,15 @@
 </head>
 <body>
   <p>This is the default index.html file from docker image [hkdigital/nginx]</p>
-  <p>
-    <script>
-      const d = new Date();
-      document.write( d.toISOString() );
-    </script>
-  </p>
+
+  <div id="time"></div>
+
+  <script>
+    const elem = document.getElementById("time");
+
+    const d = new Date();
+    time.innerText = d.toISOString();
+  </script>
+
 </body>
 </html>
